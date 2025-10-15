@@ -4,6 +4,14 @@ OpenTelemetry-based SDK for automatic AI agent usage tracking and billing. Zero-
 
 ## Installation
 
+### From GitHub (Recommended)
+
+```bash
+npm install git+https://github.com/Agent-Bill/Node.git
+```
+
+### From npm (Coming Soon)
+
 ```bash
 npm install @agentbill/sdk
 ```
