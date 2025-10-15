@@ -2,7 +2,7 @@
 
 export interface AgentBillConfig {
   apiKey: string;
-  baseUrl?: string;
+  baseUrl: string;
   customerId?: string;
   debug?: boolean;
 }

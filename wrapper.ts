@@ -151,7 +151,10 @@ export class AgentBillWrapper {
    */
   async trackSignal(eventName: string, revenue: number = 0, data: Record<string, any> = {}) {
     try {
-      const baseUrl = this.config.baseUrl || window.location.origin;
+      const baseUrl = this.config.baseUrl;
+      if (!baseUrl) {
+        throw new Error('baseUrl is required in AgentBill config');
+      }
       const response = await fetch(`${baseUrl}/functions/v1/record-signals`, {
         method: 'POST',
         headers: {

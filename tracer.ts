@@ -137,7 +137,10 @@ export class AgentBillTracer {
     this.log('Exporting spans', { count: spans.length });
 
     try {
-      const baseUrl = this.config.baseUrl || window.location.origin;
+      const baseUrl = this.config.baseUrl;
+      if (!baseUrl) {
+        throw new Error('baseUrl is required in AgentBill config');
+      }
       const response = await fetch(`${baseUrl}/functions/v1/otel-collector`, {
         method: 'POST',
         headers: {
